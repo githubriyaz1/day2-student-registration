@@ -1,33 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Registration — Interactive</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Student Registration Form</h1>
-        <form id="registrationForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email">
-
-            <label for="department">Department:</label>
-            <input type="text" id="department" name="department" placeholder="Enter your department">
-
-            <label for="year">Year:</label>
-            <input type="text" id="year" name="year" placeholder="e.g. 3rd Year">
-
-            <label for="project">Project Title:</label>
-            <input type="text" id="project" name="project" placeholder="Enter project title">
-
-            <button type="submit">Register</button>
-        </form>
+  <main class="page">
+    <div class="hero">
+      <h1 class="title">Student Registration</h1>
+      <p class="subtitle">Clean, interactive, and responsive — register your project 🚀</p>
     </div>
-    <script src="script.js"></script>
+
+    <section class="card form-card">
+      <form id="registrationForm" autocomplete="off">
+        <div class="row">
+          <div class="field">
+            <input id="name" name="name" type="text" required />
+            <label for="name">Full Name</label>
+            <small class="hint">Enter your full name</small>
+          </div>
+
+          <div class="field">
+            <input id="email" name="email" type="email" required />
+            <label for="email">Email</label>
+            <small class="hint">example@domain.com</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <select id="department" name="department" required>
+              <option value="" disabled selected hidden>Choose Department</option>
+              <option>Information Technology</option>
+              <option>Computer Science</option>
+              <option>Electronics</option>
+              <option>Mechanical</option>
+              <option>Other</option>
+            </select>
+            <label class="select-label" for="department">Department</label>
+          </div>
+
+          <div class="field">
+            <input id="year" name="year" type="text" required />
+            <label for="year">Year</label>
+            <small class="hint">e.g. 3rd Year</small>
+          </div>
+        </div>
+
+        <div class="field">
+          <input id="project" name="project" type="text" required />
+          <label for="project">Project Title</label>
+          <small class="hint">Short, punchy title</small>
+        </div>
+
+        <div class="actions">
+          <button id="submitBtn" class="btn" type="submit">Register</button>
+          <button id="clearBtn" type="button" class="btn ghost">Clear All</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card submissions-card">
+      <div class="sub-header">
+        <h2>Submissions</h2>
+        <p class="muted">Saved locally in your browser (localStorage)</p>
+      </div>
+      <div id="submissionsList" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- tiny success toast -->
+  <div id="toast" class="toast">Registration successful ✅</div>
+
+  <script src="script.js"></script>
 </body>
 </html>
